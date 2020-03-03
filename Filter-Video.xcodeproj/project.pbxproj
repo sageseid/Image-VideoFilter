@@ -15,6 +15,11 @@
 		4E475CF5240D14470008DFF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E475CF3240D14470008DFF8 /* LaunchScreen.storyboard */; };
 		4E475D00240D14470008DFF8 /* Filter_VideoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E475CFF240D14470008DFF8 /* Filter_VideoTests.swift */; };
 		4E475D0B240D14470008DFF8 /* Filter_VideoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E475D0A240D14470008DFF8 /* Filter_VideoUITests.swift */; };
+		4E696E84240E61E10090B29C /* UploadFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E696E83240E61E10090B29C /* UploadFileViewController.swift */; };
+		4E696E87240E6BA10090B29C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E696E86240E6BA10090B29C /* Utilities.swift */; };
+		4E696E8A240E6DCA0090B29C /* FilterVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E696E89240E6DCA0090B29C /* FilterVideoViewController.swift */; };
+		4E696E8C240E74E00090B29C /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E696E8B240E74E00090B29C /* FilterCollectionViewCell.swift */; };
+		4E696E8E240E7E5A0090B29C /* FilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E696E8D240E7E5A0090B29C /* FilterData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		4E475D06240D14470008DFF8 /* Filter-VideoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Filter-VideoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E475D0A240D14470008DFF8 /* Filter_VideoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter_VideoUITests.swift; sourceTree = "<group>"; };
 		4E475D0C240D14470008DFF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E696E83240E61E10090B29C /* UploadFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadFileViewController.swift; sourceTree = "<group>"; };
+		4E696E86240E6BA10090B29C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		4E696E89240E6DCA0090B29C /* FilterVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterVideoViewController.swift; sourceTree = "<group>"; };
+		4E696E8B240E74E00090B29C /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E696E8D240E7E5A0090B29C /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,9 @@
 		4E475CE7240D14420008DFF8 /* Filter-Video */ = {
 			isa = PBXGroup;
 			children = (
+				4E696E88240E6D900090B29C /* filterVideo */,
+				4E696E85240E6B8B0090B29C /* utility  */,
+				4E696E82240E61C70090B29C /* uploadFile */,
 				4E475CE8240D14420008DFF8 /* AppDelegate.swift */,
 				4E475CEA240D14420008DFF8 /* SceneDelegate.swift */,
 				4E475CEC240D14420008DFF8 /* ViewController.swift */,
@@ -126,6 +139,32 @@
 				4E475D0C240D14470008DFF8 /* Info.plist */,
 			);
 			path = "Filter-VideoUITests";
+			sourceTree = "<group>";
+		};
+		4E696E82240E61C70090B29C /* uploadFile */ = {
+			isa = PBXGroup;
+			children = (
+				4E696E83240E61E10090B29C /* UploadFileViewController.swift */,
+			);
+			path = uploadFile;
+			sourceTree = "<group>";
+		};
+		4E696E85240E6B8B0090B29C /* utility  */ = {
+			isa = PBXGroup;
+			children = (
+				4E696E86240E6BA10090B29C /* Utilities.swift */,
+			);
+			path = "utility ";
+			sourceTree = "<group>";
+		};
+		4E696E88240E6D900090B29C /* filterVideo */ = {
+			isa = PBXGroup;
+			children = (
+				4E696E89240E6DCA0090B29C /* FilterVideoViewController.swift */,
+				4E696E8B240E74E00090B29C /* FilterCollectionViewCell.swift */,
+				4E696E8D240E7E5A0090B29C /* FilterData.swift */,
+			);
+			path = filterVideo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E696E8A240E6DCA0090B29C /* FilterVideoViewController.swift in Sources */,
 				4E475CED240D14420008DFF8 /* ViewController.swift in Sources */,
+				4E696E84240E61E10090B29C /* UploadFileViewController.swift in Sources */,
+				4E696E8E240E7E5A0090B29C /* FilterData.swift in Sources */,
 				4E475CE9240D14420008DFF8 /* AppDelegate.swift in Sources */,
+				4E696E87240E6BA10090B29C /* Utilities.swift in Sources */,
 				4E475CEB240D14420008DFF8 /* SceneDelegate.swift in Sources */,
+				4E696E8C240E74E00090B29C /* FilterCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
