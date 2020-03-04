@@ -4,115 +4,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Filter Video View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="FilterVideoViewController" customModule="Filter_Video" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1m-OE-2jq">
-                                <rect key="frame" x="285" y="44" width="114" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="re4-cF-oZZ"/>
-                                </constraints>
-                                <state key="normal" title="Save to Firebase"/>
-                                <connections>
-                                    <action selector="saveToFireBaseBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9a6-sv-2ux"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="502-Ry-siz">
-                                <rect key="frame" x="15" y="44" width="48" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Maa-eH-rfj"/>
-                                </constraints>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancelBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wpb-vW-Ur2"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lx0-Fu-PZa">
-                                <rect key="frame" x="0.0" y="662" width="414" height="200"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="IQN-Zf-Afv"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FF8-8b-jVa">
-                                    <size key="itemSize" width="184" height="173"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KNe-0u-y8N" customClass="FilterCollectionViewCell" customModule="Filter_Video" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="184" height="173"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NdN-Mh-PYJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="184" height="173"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GKj-Hm-R7M">
-                                                    <rect key="frame" x="0.0" y="0.0" width="184" height="133"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27k-Sw-rXX">
-                                                    <rect key="frame" x="8" y="147" width="168" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="GKj-Hm-R7M" firstAttribute="top" secondItem="NdN-Mh-PYJ" secondAttribute="top" id="4Pl-oV-lzj"/>
-                                                <constraint firstItem="27k-Sw-rXX" firstAttribute="leading" secondItem="NdN-Mh-PYJ" secondAttribute="leading" constant="8" id="562-5a-xhF"/>
-                                                <constraint firstItem="27k-Sw-rXX" firstAttribute="top" secondItem="GKj-Hm-R7M" secondAttribute="bottom" constant="14" id="5ux-K1-yFb"/>
-                                                <constraint firstItem="GKj-Hm-R7M" firstAttribute="leading" secondItem="NdN-Mh-PYJ" secondAttribute="leading" id="Sne-Pg-gS4"/>
-                                                <constraint firstAttribute="trailing" secondItem="GKj-Hm-R7M" secondAttribute="trailing" id="fXh-dn-aM5"/>
-                                                <constraint firstAttribute="trailing" secondItem="27k-Sw-rXX" secondAttribute="trailing" constant="8" id="ub8-kQ-fTT"/>
-                                                <constraint firstAttribute="bottom" secondItem="27k-Sw-rXX" secondAttribute="bottom" constant="8" id="zd1-T3-8uU"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="184" height="173"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNo-cJ-8ej">
-                                <rect key="frame" x="0.0" y="114" width="414" height="528"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V1m-OE-2jq" secondAttribute="trailing" constant="15" id="7gL-G2-50O"/>
-                            <constraint firstItem="502-Ry-siz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="S9B-yJ-8Jk"/>
-                            <constraint firstItem="V1m-OE-2jq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ua8-gK-YBc"/>
-                            <constraint firstItem="502-Ry-siz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="aI8-s2-11M"/>
-                            <constraint firstItem="cNo-cJ-8ej" firstAttribute="top" secondItem="V1m-OE-2jq" secondAttribute="bottom" constant="20" id="brb-ae-Ikt"/>
-                            <constraint firstItem="cNo-cJ-8ej" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="g77-jX-eDi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Lx0-Fu-PZa" secondAttribute="bottom" id="jLx-pT-dfM"/>
-                            <constraint firstItem="Lx0-Fu-PZa" firstAttribute="top" secondItem="cNo-cJ-8ej" secondAttribute="bottom" constant="20" id="m8n-ed-JaX"/>
-                            <constraint firstItem="Lx0-Fu-PZa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mAG-vP-qxr"/>
-                            <constraint firstItem="cNo-cJ-8ej" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nn4-gL-agp"/>
-                            <constraint firstItem="Lx0-Fu-PZa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="o30-Aw-sGy"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="videoView" destination="cNo-cJ-8ej" id="9AK-A3-nyf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="562" y="1015"/>
-        </scene>
         <!--Video Logs-->
         <scene sceneID="hsT-bD-5H9">
             <objects>
-                <viewController id="X2d-j0-TM8" sceneMemberID="viewController">
+                <viewController id="X2d-j0-TM8" customClass="VideoLogsViewController" customModule="Filter_Video" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="ETL-oB-hma">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="180" id="aOH-yn-MFQ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="180" id="aOH-yn-MFQ" customClass="VideoLogsTableViewCell" customModule="Filter_Video" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aOH-yn-MFQ" id="Ozu-jh-ZUS">
@@ -150,6 +48,10 @@
                                                 <constraint firstItem="VRZ-iS-FbS" firstAttribute="leading" secondItem="Ozu-jh-ZUS" secondAttribute="leadingMargin" constant="5" id="zbu-F7-dr9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="VideoThumbnail" destination="VRZ-iS-FbS" id="vdi-1Q-Jur"/>
+                                            <outlet property="VideoTitle" destination="kxD-7e-lt1" id="eUm-Bu-46m"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -163,7 +65,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wqn-of-qdf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Video Logs" id="qoB-2g-Cgl"/>
+                    <tabBarItem key="tabBarItem" title="Video Logs" image="paper" selectedImage="paper" id="qoB-2g-Cgl"/>
+                    <connections>
+                        <outlet property="VideoLogsTableview" destination="RtH-F4-2nB" id="JZH-hg-xdb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXc-g2-8ga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -177,16 +82,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgx-qx-hV6">
-                                <rect key="frame" x="184" y="413.66666666666669" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgx-qx-hV6">
+                                <rect key="frame" x="157" y="378.66666666666669" width="100" height="100"/>
+                                <state key="normal" image="icons8-upload-100"/>
                                 <connections>
                                     <action selector="uploadBtnClicked:" destination="vV4-7b-a4z" eventType="touchUpInside" id="XCr-PH-UI9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click the above icon to choose a Video file" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBq-1j-YcL">
-                                <rect key="frame" x="24.666666666666657" y="476.66666666666669" width="364.66666666666674" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click the icon above to choose a Video file" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBq-1j-YcL">
+                                <rect key="frame" x="36.666666666666657" y="477.66666666666669" width="341" height="21.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -200,7 +105,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jEZ-h6-rLO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upload Video" id="FwR-cj-3Cb"/>
+                    <tabBarItem key="tabBarItem" title="Upload Video" image="upload" selectedImage="upload" id="FwR-cj-3Cb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hq1-s5-eDC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,7 +115,7 @@
         <scene sceneID="hNd-EO-mYu">
             <objects>
                 <tabBarController id="B0s-Di-7F0" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ney-Xd-Spi">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="ney-Xd-Spi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -225,4 +130,9 @@
             <point key="canvasLocation" x="716" y="-415"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-upload-100" width="100" height="100"/>
+        <image name="paper" width="24" height="24"/>
+        <image name="upload" width="24" height="24"/>
+    </resources>
 </document>
