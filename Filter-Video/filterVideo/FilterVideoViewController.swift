@@ -57,11 +57,16 @@ class FilterVideoViewController: FiilterViewController {
             }
         }
     }
-    
+     
     
     func addVideo(asset: AVURLAsset){
           let videoLogsVC = VideoLogsViewController()
-          videoLogsVC.videoArray.append(asset)
+            print("check asset")
+            print(asset)
+          videoArray.append(asset)
+        print("check first array")
+        print(videoArray)
+//          videoLogsVC.VideoLogsTableview.reloadData()
       }
 
     
@@ -125,6 +130,7 @@ class FilterVideoViewController: FiilterViewController {
         video?.exportFilterVideo(videoComposition: avVideoComposition , completion: { (url) in
             if let delegate = self.delegate {
                 let convertedVideo = AVURLAsset(url: url! as URL)
+                print("function triggered")
                 self.addVideo(asset: convertedVideo)
                 delegate.filterVideoViewControllerVideoDidFilter(video: convertedVideo)
             }
