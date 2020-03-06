@@ -32,6 +32,7 @@ class UploadFileViewController: UIViewController {
 }
 
 extension UploadFileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, FilterVideoViewControllerDelegate {
+ 
     
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -71,5 +72,9 @@ extension UploadFileViewController: UIImagePickerControllerDelegate, UINavigatio
     func filterVideoViewControllerDidCancel() {
         
     }
+    func saveAVURLAsset(video: AVURLAsset) {
+        
+     }
+     
     
 }

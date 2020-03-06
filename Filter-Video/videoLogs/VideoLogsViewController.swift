@@ -11,20 +11,35 @@ import AVFoundation
 import AVKit
 
 
-var videoArray = [AVURLAsset]()
 
 
-class VideoLogsViewController: UIViewController {
-//VideoLogsTableViewCellID
+
+class VideoLogsViewController: UIViewController, FilterVideoViewControllerDelegate {
+    
+   var videoArray = [AVURLAsset]()
+    
+    
+    func filterVideoViewControllerVideoDidFilter(video: AVURLAsset) {
+    }
+    
+    
+    func saveAVURLAsset(video: AVURLAsset) {
+        print("delegate function triggered")
+        videoArray.append(video)
+        VideoLogsTableview.reloadData()
+    }
+    
+    func filterVideoViewControllerDidCancel() {
+    }
+    
     
     @IBOutlet weak var VideoLogsTableview: UITableView!
     
     
-    
+ 
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print("trigger vc")
         VideoLogsTableview.reloadData()
     }
     
@@ -32,8 +47,6 @@ class VideoLogsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("check video array")
-        print(videoArray)
         VideoLogsTableview.dataSource = self 
         VideoLogsTableview.reloadData()
     }
@@ -53,6 +66,8 @@ extension VideoLogsViewController:  UITableViewDataSource, UITableViewDelegate  
         
             if let cell = tableView.dequeueReusableCell(withIdentifier: "VideoLogsTableViewCellID") as? VideoLogsTableViewCell{
                        let videoItem = videoArray[indexPath.row]
+//                let assetURL = avAsset as! AVURLAsset
+//                let name = assetURL.url.lastPathComponent
                       let text_title   = "Video Clip \(indexPath.row + 1)"
                       print("text title")
                       print(text_title)

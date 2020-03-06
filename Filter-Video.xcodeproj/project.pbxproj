@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E23276C241251120029A94A /* VideoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23276B241251120029A94A /* VideoDetailsViewController.swift */; };
+		4E23276E241252930029A94A /* MetaDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23276D241252930029A94A /* MetaDataTableViewCell.swift */; };
 		4E38EB82240E9F1600D8A15A /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E38EB81240E9F1600D8A15A /* FilterCollectionViewCell.xib */; };
 		4E38EB84240E9F2800D8A15A /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E38EB83240E9F2800D8A15A /* FilterCollectionViewCell.swift */; };
 		4E38EB86240E9F3100D8A15A /* FiilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E38EB85240E9F3100D8A15A /* FiilterViewController.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E23276B241251120029A94A /* VideoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsViewController.swift; sourceTree = "<group>"; };
+		4E23276D241252930029A94A /* MetaDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaDataTableViewCell.swift; sourceTree = "<group>"; };
 		4E38EB81240E9F1600D8A15A /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		4E38EB83240E9F2800D8A15A /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E38EB85240E9F3100D8A15A /* FiilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiilterViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E23276A24124FF60029A94A /* videoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				4E23276B241251120029A94A /* VideoDetailsViewController.swift */,
+				4E23276D241252930029A94A /* MetaDataTableViewCell.swift */,
+			);
+			path = videoDetails;
+			sourceTree = "<group>";
+		};
 		4E475CDC240D14420008DFF8 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +128,7 @@
 		4E475CE7240D14420008DFF8 /* Filter-Video */ = {
 			isa = PBXGroup;
 			children = (
+				4E23276A24124FF60029A94A /* videoDetails */,
 				4E72E899240F9FE30060FD13 /* videoLogs */,
 				4E696E88240E6D900090B29C /* filterVideo */,
 				4E696E85240E6B8B0090B29C /* utility  */,
@@ -323,9 +337,11 @@
 				4E475CE9240D14420008DFF8 /* AppDelegate.swift in Sources */,
 				4E72E89B240FA01B0060FD13 /* VideoLogsViewController.swift in Sources */,
 				4E696E87240E6BA10090B29C /* Utilities.swift in Sources */,
+				4E23276C241251120029A94A /* VideoDetailsViewController.swift in Sources */,
 				4E38EB84240E9F2800D8A15A /* FilterCollectionViewCell.swift in Sources */,
 				4E38EB88240E9F3700D8A15A /* FilterVideoViewController.swift in Sources */,
 				4E475CEB240D14420008DFF8 /* SceneDelegate.swift in Sources */,
+				4E23276E241252930029A94A /* MetaDataTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
