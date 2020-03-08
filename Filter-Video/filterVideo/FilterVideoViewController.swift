@@ -16,13 +16,10 @@ public protocol FilterVideoViewControllerDelegate {
 }
 
 
-protocol SendVideoData {
-   func saveAVURLAsset(video: AVURLAsset)
-}
 
 class FilterVideoViewController: FiilterViewController {
     
-    public var delegate: FilterVideoViewControllerDelegate?
+public var delegate: FilterVideoViewControllerDelegate?
     
     @IBOutlet weak var videoView: UIView!
     //video player
@@ -64,6 +61,13 @@ class FilterVideoViewController: FiilterViewController {
         }
     }
      
+
+    func saveAVURLAsset(video: AVURLAsset) {
+        print("delegate function triggered")
+        videoArray.append(video)
+      print("check array on set")
+        print(videoArray)
+    }
     
 
     
@@ -125,11 +129,10 @@ class FilterVideoViewController: FiilterViewController {
     
     @IBAction func doneButtontapped() {
         video?.exportFilterVideo(videoComposition: avVideoComposition , completion: { (url) in
-            if let delegate = self.delegate {
-                let convertedVideo = AVURLAsset(url: url! as URL)
-                print("done btn clicked")
-                delegate.saveAVURLAsset(video: convertedVideo)
-            }
+
+            let convertedVideo = AVURLAsset(url: url! as URL)
+            self.saveAVURLAsset(video: convertedVideo)
+    
         })
         dismiss(animated: true, completion: nil)
     }

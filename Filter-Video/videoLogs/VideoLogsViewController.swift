@@ -10,45 +10,24 @@ import UIKit
 import AVFoundation
 import AVKit
 
+var videoArray = [AVURLAsset]()
 
 
-
-
-class VideoLogsViewController: UIViewController, FilterVideoViewControllerDelegate {
-    
-   var videoArray = [AVURLAsset]()
-    
-    
-    func filterVideoViewControllerVideoDidFilter(video: AVURLAsset) {
-    }
-    
-    
-    func saveAVURLAsset(video: AVURLAsset) {
-        print("delegate function triggered")
-        videoArray.append(video)
-        VideoLogsTableview.reloadData()
-    }
-    
-    func filterVideoViewControllerDidCancel() {
-    }
-    
-    
-    @IBOutlet weak var VideoLogsTableview: UITableView!
-    
+class VideoLogsViewController: UIViewController {
     
  
     
+    @IBOutlet weak var VideoLogsTableview: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         VideoLogsTableview.reloadData()
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        VideoLogsTableview.dataSource = self 
         VideoLogsTableview.reloadData()
+        VideoLogsTableview.dataSource = self
+        VideoLogsTableview.delegate = self
     }
     
     
@@ -62,18 +41,13 @@ extension VideoLogsViewController:  UITableViewDataSource, UITableViewDelegate  
         return videoArray.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
             if let cell = tableView.dequeueReusableCell(withIdentifier: "VideoLogsTableViewCellID") as? VideoLogsTableViewCell{
                        let videoItem = videoArray[indexPath.row]
-//                let assetURL = avAsset as! AVURLAsset
-//                let name = assetURL.url.lastPathComponent
-                      let text_title   = "Video Clip \(indexPath.row + 1)"
-                      print("text title")
-                      print(text_title)
+
+                      let text_title   = "Video Clip \(indexPath.row + 1) "
                       let image_thumbnail =   videoItem.videoToUIImage()
-                       print("image title")
-                       print(image_thumbnail)
                        cell.updateViews(title: text_title, thumbnail: image_thumbnail)
                        return cell
                    }else {
@@ -81,6 +55,22 @@ extension VideoLogsViewController:  UITableViewDataSource, UITableViewDelegate  
                    }
         }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       print("its Clicked")
+        let videoDetail = videoArray[indexPath.row]
+        performSegue(withIdentifier: "DetailedSegue", sender: videoDetail)
+        
+    }
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if  let TestVc = segue.destination as? VideoDetailsViewController {
+            assert(sender as? AVURLAsset != nil)
+                 TestVc.getVideoDetails(videoDetails: sender as! AVURLAsset )
+             }
+                 
+    }
     
     }
     
