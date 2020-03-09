@@ -50,7 +50,6 @@ class VideoLogsViewController: UIViewController {
 
 extension VideoLogsViewController:  UITableViewDataSource, UITableViewDelegate  {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return videoArray.count
     }
@@ -74,22 +73,19 @@ extension VideoLogsViewController:  UITableViewDataSource, UITableViewDelegate  
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let videoItem = videoArray[indexPath.row]
         let urlHolder  = (videoItem.value(forKeyPath: "videoAsset") as? URL)!
-        let  videoAsset = AVURLAsset(url: urlHolder as URL)
-        let videoDetail = videoAsset
-        performSegue(withIdentifier: "DetailedSegue", sender: videoDetail)
-        
+      
+        performSegue(withIdentifier: "DetailedSegue", sender: urlHolder)
     }
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if  let TestVc = segue.destination as? VideoDetailsViewController {
-            assert(sender as? AVURLAsset != nil)
-                 TestVc.getVideoDetails(videoDetails: sender as! AVURLAsset )
+            assert(sender as? URL != nil)
+                 TestVc.getVideoDetails(videoDetails: sender as! URL)
              }
-                 
     }
     
-    }
+}
     
     
     

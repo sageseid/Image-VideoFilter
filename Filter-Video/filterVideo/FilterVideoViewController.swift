@@ -63,14 +63,6 @@ public var delegate: FilterVideoViewControllerDelegate?
     }
      
 
-//    func saveAVURLAsset(video: AVURLAsset) {
-//        print("delegate function triggered")
-//        videoArray.append(video)
-//      print("check array on set")
-//        print(videoArray)
-//    }
-//    
-
     
     func playVideo(video:AVURLAsset, filterName:String){
         let avPlayerItem = AVPlayerItem(asset: video)
@@ -129,11 +121,13 @@ public var delegate: FilterVideoViewControllerDelegate?
     }
     
     @IBAction func doneButtontapped() {
+        if avVideoComposition != nil {
         video?.exportFilterVideo(videoComposition: avVideoComposition , completion: { (url) in
-         
-           let convertedVideo = AVURLAsset(url: url! as URL)
+           //let convertedVideo = AVURLAsset(url: url! as URL)
            self.save(name: url! as URL)
         })
+        }
+            
         dismiss(animated: true, completion: nil)
     }
     

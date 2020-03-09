@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4E23276C241251120029A94A /* VideoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23276B241251120029A94A /* VideoDetailsViewController.swift */; };
-		4E23276E241252930029A94A /* MetaDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E23276D241252930029A94A /* MetaDataTableViewCell.swift */; };
 		4E38EB82240E9F1600D8A15A /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E38EB81240E9F1600D8A15A /* FilterCollectionViewCell.xib */; };
 		4E38EB84240E9F2800D8A15A /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E38EB83240E9F2800D8A15A /* FilterCollectionViewCell.swift */; };
 		4E38EB86240E9F3100D8A15A /* FiilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E38EB85240E9F3100D8A15A /* FiilterViewController.swift */; };
 		4E38EB88240E9F3700D8A15A /* FilterVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E38EB87240E9F3700D8A15A /* FilterVideoViewController.swift */; };
 		4E38EB8A240E9F3F00D8A15A /* FilterVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E38EB89240E9F3F00D8A15A /* FilterVideoViewController.xib */; };
+		4E3AB650241671AC00923F43 /* FireBaseDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3AB64F241671AC00923F43 /* FireBaseDataService.swift */; };
 		4E475CE9240D14420008DFF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E475CE8240D14420008DFF8 /* AppDelegate.swift */; };
 		4E475CEB240D14420008DFF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E475CEA240D14420008DFF8 /* SceneDelegate.swift */; };
 		4E475CF0240D14420008DFF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E475CEE240D14420008DFF8 /* Main.storyboard */; };
@@ -55,12 +55,12 @@
 		3AAB9C0DFA06D9F301D9D3E4 /* libPods-Filter-Video-Filter-VideoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Filter-Video-Filter-VideoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BEB7E2D65B19389861030BE /* Pods-Filter-VideoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Filter-VideoTests.debug.xcconfig"; path = "Target Support Files/Pods-Filter-VideoTests/Pods-Filter-VideoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4E23276B241251120029A94A /* VideoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDetailsViewController.swift; sourceTree = "<group>"; };
-		4E23276D241252930029A94A /* MetaDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaDataTableViewCell.swift; sourceTree = "<group>"; };
 		4E38EB81240E9F1600D8A15A /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		4E38EB83240E9F2800D8A15A /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E38EB85240E9F3100D8A15A /* FiilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FiilterViewController.swift; sourceTree = "<group>"; };
 		4E38EB87240E9F3700D8A15A /* FilterVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVideoViewController.swift; sourceTree = "<group>"; };
 		4E38EB89240E9F3F00D8A15A /* FilterVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterVideoViewController.xib; sourceTree = "<group>"; };
+		4E3AB64F241671AC00923F43 /* FireBaseDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseDataService.swift; sourceTree = "<group>"; };
 		4E475CE5240D14420008DFF8 /* Filter-Video.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Filter-Video.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E475CE8240D14420008DFF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E475CEA240D14420008DFF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,9 +132,16 @@
 			isa = PBXGroup;
 			children = (
 				4E23276B241251120029A94A /* VideoDetailsViewController.swift */,
-				4E23276D241252930029A94A /* MetaDataTableViewCell.swift */,
 			);
 			path = videoDetails;
+			sourceTree = "<group>";
+		};
+		4E3AB64E2416719600923F43 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4E3AB64F241671AC00923F43 /* FireBaseDataService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		4E475CDC240D14420008DFF8 = {
@@ -162,6 +169,7 @@
 		4E475CE7240D14420008DFF8 /* Filter-Video */ = {
 			isa = PBXGroup;
 			children = (
+				4E3AB64E2416719600923F43 /* Network */,
 				4EC771002416564D00763405 /* GoogleService-Info.plist */,
 				4E23276A24124FF60029A94A /* videoDetails */,
 				4E72E899240F9FE30060FD13 /* videoLogs */,
@@ -454,6 +462,7 @@
 				4E696E84240E61E10090B29C /* UploadFileViewController.swift in Sources */,
 				4E72E89D240FA17E0060FD13 /* VideoLogsTableViewCell.swift in Sources */,
 				4E475CE9240D14420008DFF8 /* AppDelegate.swift in Sources */,
+				4E3AB650241671AC00923F43 /* FireBaseDataService.swift in Sources */,
 				4E72E89B240FA01B0060FD13 /* VideoLogsViewController.swift in Sources */,
 				4EF92F4A241513600012E282 /* videoList.xcdatamodeld in Sources */,
 				4E696E87240E6BA10090B29C /* Utilities.swift in Sources */,
@@ -461,7 +470,6 @@
 				4E38EB84240E9F2800D8A15A /* FilterCollectionViewCell.swift in Sources */,
 				4E38EB88240E9F3700D8A15A /* FilterVideoViewController.swift in Sources */,
 				4E475CEB240D14420008DFF8 /* SceneDelegate.swift in Sources */,
-				4E23276E241252930029A94A /* MetaDataTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

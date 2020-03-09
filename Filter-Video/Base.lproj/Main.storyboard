@@ -89,12 +89,6 @@
                                     <constraint firstAttribute="height" constant="200" id="4gm-Wl-xTM"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zli-Ch-j1r">
-                                <rect key="frame" x="20" y="400" width="374" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPx-LT-FXv">
                                 <rect key="frame" x="30" y="270" width="110" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -123,25 +117,38 @@
                                     <action selector="uploadFirebaseBtn:" destination="kym-Xz-7kR" eventType="touchUpInside" id="Ieb-Mz-9XZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3y-sR-tdv">
+                                <rect key="frame" x="30" y="350" width="364" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="downloadUrlBtnClicked:" destination="kym-Xz-7kR" eventType="touchUpInside" id="zNA-K1-b6E"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-VJ-Fb3">
+                                <rect key="frame" x="188.66666666666666" y="400" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="d3y-sR-tdv" firstAttribute="top" secondItem="mPx-LT-FXv" secondAttribute="bottom" constant="30" id="4h2-6P-HyP"/>
                             <constraint firstItem="dyp-aF-0wg" firstAttribute="trailing" secondItem="WTp-L7-A4F" secondAttribute="trailing" id="5lP-uJ-PNa"/>
+                            <constraint firstItem="Ioa-VJ-Fb3" firstAttribute="centerX" secondItem="OiN-PZ-hJd" secondAttribute="centerX" id="7by-eA-Unr"/>
                             <constraint firstItem="WTp-L7-A4F" firstAttribute="leading" secondItem="OiN-PZ-hJd" secondAttribute="leading" constant="30" id="Esw-rX-YeP"/>
+                            <constraint firstItem="Ioa-VJ-Fb3" firstAttribute="top" secondItem="d3y-sR-tdv" secondAttribute="bottom" constant="20" id="HGh-7T-bxJ"/>
                             <constraint firstItem="OiN-PZ-hJd" firstAttribute="trailing" secondItem="WTp-L7-A4F" secondAttribute="trailing" constant="20" id="PHR-TE-fqV"/>
-                            <constraint firstItem="Zli-Ch-j1r" firstAttribute="top" secondItem="mPx-LT-FXv" secondAttribute="bottom" constant="80" id="XKP-9u-udt"/>
+                            <constraint firstItem="d3y-sR-tdv" firstAttribute="trailing" secondItem="WTp-L7-A4F" secondAttribute="trailing" id="UUS-6F-OOW"/>
                             <constraint firstItem="mPx-LT-FXv" firstAttribute="leading" secondItem="WTp-L7-A4F" secondAttribute="leading" id="YtL-w6-anr"/>
                             <constraint firstItem="dyp-aF-0wg" firstAttribute="top" secondItem="mPx-LT-FXv" secondAttribute="top" id="adj-2c-puZ"/>
                             <constraint firstItem="mPx-LT-FXv" firstAttribute="top" secondItem="WTp-L7-A4F" secondAttribute="bottom" constant="20" id="cwc-PG-m0E"/>
-                            <constraint firstItem="OiN-PZ-hJd" firstAttribute="trailing" secondItem="Zli-Ch-j1r" secondAttribute="trailing" constant="20" id="eJA-1v-fel"/>
-                            <constraint firstItem="Zli-Ch-j1r" firstAttribute="leading" secondItem="OiN-PZ-hJd" secondAttribute="leading" constant="20" id="nQr-h0-3K4"/>
+                            <constraint firstItem="d3y-sR-tdv" firstAttribute="leading" secondItem="WTp-L7-A4F" secondAttribute="leading" id="dHC-Kb-PUL"/>
                             <constraint firstItem="WTp-L7-A4F" firstAttribute="top" secondItem="OiN-PZ-hJd" secondAttribute="top" constant="50" id="s9c-TT-N2f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OiN-PZ-hJd"/>
                     </view>
                     <navigationItem key="navigationItem" id="jWZ-xK-5AN"/>
                     <connections>
-                        <outlet property="TitleLabel" destination="Zli-Ch-j1r" id="MMa-VH-2Tx"/>
+                        <outlet property="activityLoader" destination="Ioa-VJ-Fb3" id="LI8-Yd-XxY"/>
+                        <outlet property="downloadUrlBtn" destination="d3y-sR-tdv" id="edt-l9-1SY"/>
                         <outlet property="videoImage" destination="WTp-L7-A4F" id="kmb-G2-OJZ"/>
                     </connections>
                 </viewController>
