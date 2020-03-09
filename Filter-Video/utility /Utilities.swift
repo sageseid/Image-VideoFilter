@@ -8,6 +8,7 @@
 
 import Foundation
 import AVKit
+import CoreData
 
 extension AVAsset {
     static func squareCropVideo(inputURL: NSURL, completion: @escaping (_ outputURL : NSURL?) -> ())
@@ -159,3 +160,4 @@ extension AVAsset {
        }
 
 }
+

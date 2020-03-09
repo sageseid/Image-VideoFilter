@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import CoreData
 
 public protocol FilterVideoViewControllerDelegate {
     func saveAVURLAsset(video: AVURLAsset)
@@ -62,13 +63,13 @@ public var delegate: FilterVideoViewControllerDelegate?
     }
      
 
-    func saveAVURLAsset(video: AVURLAsset) {
-        print("delegate function triggered")
-        videoArray.append(video)
-      print("check array on set")
-        print(videoArray)
-    }
-    
+//    func saveAVURLAsset(video: AVURLAsset) {
+//        print("delegate function triggered")
+//        videoArray.append(video)
+//      print("check array on set")
+//        print(videoArray)
+//    }
+//    
 
     
     func playVideo(video:AVURLAsset, filterName:String){
@@ -129,11 +130,34 @@ public var delegate: FilterVideoViewControllerDelegate?
     
     @IBAction func doneButtontapped() {
         video?.exportFilterVideo(videoComposition: avVideoComposition , completion: { (url) in
-
-            let convertedVideo = AVURLAsset(url: url! as URL)
-            self.saveAVURLAsset(video: convertedVideo)
-    
+         
+           let convertedVideo = AVURLAsset(url: url! as URL)
+           self.save(name: url! as URL)
         })
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func save(name: URL) {
+      
+      guard let appDelegate =
+        UIApplication.shared.delegate as? AppDelegate else {
+        return
+      }
+      let managedContext =
+        appDelegate.persistentContainer.viewContext
+      let entity =
+        NSEntityDescription.entity(forEntityName: "Video",
+                                   in: managedContext)!
+      
+      let videoUrl = NSManagedObject(entity: entity,
+                                   insertInto: managedContext)
+      videoUrl.setValue(name, forKeyPath: "videoAsset")
+      do {
+        try managedContext.save()
+        videoArray.append(videoUrl)
+      } catch let error as NSError {
+        print("Could not save. \(error), \(error.userInfo)")
+      }
     }
 }
