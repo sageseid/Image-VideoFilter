@@ -17,13 +17,13 @@ class VideoDetailsViewController: UIViewController {
         
 
     @IBOutlet weak var TitleLabel: UILabel!
-    @IBOutlet weak var WriterLabel: UILabel!
-    @IBOutlet weak var ReleaseDateLabel: UILabel!
-    @IBOutlet weak var HDlabel: UILabel!
+ 
     
     var ImageHolder: UIImage!
     var Titleholder: String!
     var video:AVURLAsset!
+    var metaItem:AVMetadataItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +36,9 @@ class VideoDetailsViewController: UIViewController {
     func getVideoDetails(videoDetails: AVURLAsset){
         video = videoDetails
         ImageHolder = videoDetails.videoToUIImage()
-        Titleholder = videoDetails.url.lastPathComponent
-        let metaData = videoDetails.availableMetadataFormats
-        print(metaData)
-        print("its metadata")
-    }
+        Titleholder = String(videoDetails.url.lastPathComponent)
+        }
+    
     
     
     @IBAction func playBtnClicked(_ sender: Any) {
@@ -59,5 +57,7 @@ class VideoDetailsViewController: UIViewController {
     @IBAction func uploadFirebaseBtn(_ sender: Any) {
     }
     
+
 }
+
 
