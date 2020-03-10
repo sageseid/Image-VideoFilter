@@ -41,7 +41,7 @@ class VideoDetailsViewController: UIViewController {
         activityLoader.startAnimating()
     }
     
-    func showUiButton (){
+    func showDownloadLinkButton (){
         activityLoader.stopAnimating()
         activityLoader.isHidden = true
         downloadUrlBtn.isHidden = false
@@ -94,7 +94,7 @@ class VideoDetailsViewController: UIViewController {
             
         // set link to title of button
         self.downloadUrlBtn.setTitle(url?.absoluteString,for: .normal)
-        self.showUiButton()
+        self.showDownloadLinkButton()
                   })
         } else {
         print(error?.localizedDescription)
