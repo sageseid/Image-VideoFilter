@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //configure firebase instance
         FirebaseApp.configure()
         return true
     }
@@ -34,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     
-    
+    /// FUNCTIONS TO SET UP CORE DATA DATABASE
     // MARK: - Core Data stack
       lazy var persistentContainer: NSPersistentContainer = {
         // The persistent container for the application. This implementation
@@ -62,8 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
       }()
 
+    
       // MARK: - Core Data Saving support
-
       func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -78,4 +80,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
         }
       }
-    }
+}

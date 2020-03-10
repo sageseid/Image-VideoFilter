@@ -10,18 +10,13 @@ import UIKit
 import AVKit
 import CoreData
 
-public protocol FilterVideoViewControllerDelegate {
-    func filterVideoViewControllerDidCancel()
-}
-
-
-
 class FilterVideoViewController: FiilterViewController {
     
-public var delegate: FilterVideoViewControllerDelegate?
     
     @IBOutlet weak var videoView: UIView!
-    //video player
+  
+    
+    
     fileprivate var avpController: AVPlayerViewController!
     fileprivate var avVideoComposition: AVVideoComposition!
     fileprivate var playerItem: AVPlayerItem!
@@ -29,26 +24,30 @@ public var delegate: FilterVideoViewControllerDelegate?
     fileprivate var video: AVURLAsset?
     fileprivate var originalImage: UIImage?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let video = self.video {
             self.playVideo(video:video, filterName: self.filterNameList[0])
-
         }
-       
     }
 
+    
     public init(video: AVURLAsset) {
         super.init(nibName: nil, bundle: nil)
         self.video = video
         self.image = video.videoToUIImage()
         self.originalImage = self.image
-        
     }
+    
+    
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
     override open func loadView() {
         if let view = UINib(nibName: "FilterVideoViewController", bundle: Bundle(for: self.classForCoder)).instantiate(withOwner: self, options: nil).first as? UIView {
@@ -90,12 +89,13 @@ public var delegate: FilterVideoViewControllerDelegate?
         }
     }
     
-    override func applyFilter() { 
-        let filterName = filterNameList[filterIndex]
+    
+    override func applyFilter() {
         if let video = self.video {
             self.playVideo(video:video, filterName:filterNameList[filterIndex])
         }
     }
+    
     
     override func createFilteredImage(filterName: String, image: UIImage) -> UIImage {
         if(filterName == filterNameList[0]){
@@ -107,16 +107,14 @@ public var delegate: FilterVideoViewControllerDelegate?
         filter?.setValue(sourceImage, forKey: kCIInputImageKey)
         let outputCGImage = context.createCGImage((filter?.outputImage!)!, from: (filter?.outputImage!.extent)!)
         let filteredImage = UIImage(cgImage: outputCGImage!, scale: image.scale, orientation: image.imageOrientation)
-        
         return filteredImage
     }
    
+    
     @IBAction func closeButtonTapped() {
-        if let delegate = self.delegate {
-            delegate.filterVideoViewControllerDidCancel()
-        }
         dismiss(animated: true, completion: nil)
     }
+    
     
     @IBAction func doneButtontapped() {
         if avVideoComposition != nil {
@@ -131,21 +129,15 @@ public var delegate: FilterVideoViewControllerDelegate?
     
     //function to save video url inside core data database
     func save(name: URL) {
-      guard let appDelegate =
-        UIApplication.shared.delegate as? AppDelegate else {
+      guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
         return
       }
-      let managedContext =
-        appDelegate.persistentContainer.viewContext
-      let entity =
-        NSEntityDescription.entity(forEntityName: "Video",
-                                   in: managedContext)!
-      let videoUrl = NSManagedObject(entity: entity,
-                                   insertInto: managedContext)
+      let managedContext = appDelegate.persistentContainer.viewContext
+      let entity = NSEntityDescription.entity(forEntityName: "Video", in: managedContext)!
+      let videoUrl = NSManagedObject(entity: entity, insertInto: managedContext)
       videoUrl.setValue(name, forKeyPath: "videoAsset")
       do {
         try managedContext.save()
-       // videoArray.append(videoUrl)
       } catch let error as NSError {
         print("Could not save. \(error), \(error.userInfo)")
       }

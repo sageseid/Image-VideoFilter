@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXc-g2-8ga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1302.8985507246377" y="320.75892857142856"/>
+            <point key="canvasLocation" x="1207" y="321"/>
         </scene>
         <!--Video Details View Controller-->
         <scene sceneID="xan-sV-3xp">
@@ -191,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hq1-s5-eDC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="360.86956521739131" y="320.75892857142856"/>
+            <point key="canvasLocation" x="206" y="321"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hNd-EO-mYu">

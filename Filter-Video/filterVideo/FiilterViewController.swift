@@ -47,16 +47,21 @@ class FiilterViewController: UIViewController {
     internal var filterIndex = 0
     internal let context = CIContext(options: nil)
     
+    
     @IBOutlet var imageView: UIImageView?
     @IBOutlet var collectionView: UICollectionView?
     internal var image: UIImage?
     internal var smallImage: UIImage?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.register(FilterCollectionViewCell.self, forCellWithReuseIdentifier: "FilterCollectionViewCell")
         collectionView?.register(UINib.init(nibName: "FilterCollectionViewCell", bundle:nil), forCellWithReuseIdentifier: "FilterCollectionViewCell")
     }
+    
+    
     
     @IBAction func imageViewDidSwipeLeft() {
         if filterIndex == filterNameList.count - 1 {
@@ -71,6 +76,8 @@ class FiilterViewController: UIViewController {
         updateCellFont()
         scrollCollectionViewToIndex(itemIndex: filterIndex)
     }
+    
+    
     
     @IBAction func imageViewDidSwipeRight() {
         if filterIndex == 0 {
@@ -87,6 +94,9 @@ class FiilterViewController: UIViewController {
         scrollCollectionViewToIndex(itemIndex: filterIndex)
     }
     
+    
+    
+    
     func applyFilter() {
         let filterName = filterNameList[filterIndex]
         if let image = self.image {
@@ -95,9 +105,13 @@ class FiilterViewController: UIViewController {
         }
     }
     
+    
+    
     func createFilteredImage(filterName: String, image: UIImage) -> UIImage {
        return UIImage()
     }
+    
+    
     
     func resizeImage(image: UIImage) -> UIImage {
         let ratio: CGFloat = 0.3
@@ -108,8 +122,9 @@ class FiilterViewController: UIViewController {
         UIGraphicsEndImageContext()
         return resizedImage!
     }
-
 }
+
+
 
 extension FiilterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -143,12 +158,9 @@ extension FiilterViewController: UICollectionViewDataSource, UICollectionViewDel
         }
         updateCellFont()
         scrollCollectionViewToIndex(itemIndex: indexPath.item)
-    }
+}
     
-    
-    
-    
-    
+
     func updateCellFont() {
         // update font of selected cell
         if let selectedCell = collectionView?.cellForItem(at: IndexPath(row: filterIndex, section: 0)) {
@@ -164,11 +176,7 @@ extension FiilterViewController: UICollectionViewDataSource, UICollectionViewDel
                 }
             }
         }
-    }
-    
-    
-    
-    
+}
     
     
     
