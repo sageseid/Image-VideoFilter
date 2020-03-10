@@ -84,13 +84,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WTp-L7-A4F">
-                                <rect key="frame" x="30" y="50" width="364" height="200"/>
+                                <rect key="frame" x="30" y="90" width="364" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="4gm-Wl-xTM"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPx-LT-FXv">
-                                <rect key="frame" x="30" y="270" width="110" height="50"/>
+                                <rect key="frame" x="30" y="330" width="110" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="QAn-FD-2yA"/>
@@ -104,7 +104,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyp-aF-0wg">
-                                <rect key="frame" x="284" y="270" width="110" height="50"/>
+                                <rect key="frame" x="284" y="330" width="110" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="40c-RB-PRK"/>
@@ -118,14 +118,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3y-sR-tdv">
-                                <rect key="frame" x="30" y="350" width="364" height="30"/>
+                                <rect key="frame" x="30" y="410" width="364" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="downloadUrlBtnClicked:" destination="kym-Xz-7kR" eventType="touchUpInside" id="zNA-K1-b6E"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-VJ-Fb3">
-                                <rect key="frame" x="188.66666666666666" y="400" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="460" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -139,9 +139,9 @@
                             <constraint firstItem="d3y-sR-tdv" firstAttribute="trailing" secondItem="WTp-L7-A4F" secondAttribute="trailing" id="UUS-6F-OOW"/>
                             <constraint firstItem="mPx-LT-FXv" firstAttribute="leading" secondItem="WTp-L7-A4F" secondAttribute="leading" id="YtL-w6-anr"/>
                             <constraint firstItem="dyp-aF-0wg" firstAttribute="top" secondItem="mPx-LT-FXv" secondAttribute="top" id="adj-2c-puZ"/>
-                            <constraint firstItem="mPx-LT-FXv" firstAttribute="top" secondItem="WTp-L7-A4F" secondAttribute="bottom" constant="20" id="cwc-PG-m0E"/>
+                            <constraint firstItem="mPx-LT-FXv" firstAttribute="top" secondItem="WTp-L7-A4F" secondAttribute="bottom" constant="40" id="cwc-PG-m0E"/>
                             <constraint firstItem="d3y-sR-tdv" firstAttribute="leading" secondItem="WTp-L7-A4F" secondAttribute="leading" id="dHC-Kb-PUL"/>
-                            <constraint firstItem="WTp-L7-A4F" firstAttribute="top" secondItem="OiN-PZ-hJd" secondAttribute="top" constant="50" id="s9c-TT-N2f"/>
+                            <constraint firstItem="WTp-L7-A4F" firstAttribute="top" secondItem="OiN-PZ-hJd" secondAttribute="top" constant="90" id="s9c-TT-N2f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OiN-PZ-hJd"/>
                     </view>
