@@ -111,8 +111,8 @@ class FiilterViewController: UIViewController {
 
 }
 
-extension FiilterViewController: UICollectionViewDataSource, UICollectionViewDelegate
-{
+extension FiilterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilterCollectionViewCell", for: indexPath) as! FilterCollectionViewCell
         var filteredImage = smallImage
@@ -128,9 +128,11 @@ extension FiilterViewController: UICollectionViewDataSource, UICollectionViewDel
         return cell
     }
     
+    
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filterNameList.count
     }
+    
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         filterIndex = indexPath.row
@@ -143,13 +145,16 @@ extension FiilterViewController: UICollectionViewDataSource, UICollectionViewDel
         scrollCollectionViewToIndex(itemIndex: indexPath.item)
     }
     
+    
+    
+    
+    
     func updateCellFont() {
         // update font of selected cell
         if let selectedCell = collectionView?.cellForItem(at: IndexPath(row: filterIndex, section: 0)) {
             let cell = selectedCell as! FilterCollectionViewCell
             cell.filterNameLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
-        
         for i in 0...filterNameList.count - 1 {
             if i != filterIndex {
                 // update nonselected cell font
@@ -160,6 +165,12 @@ extension FiilterViewController: UICollectionViewDataSource, UICollectionViewDel
             }
         }
     }
+    
+    
+    
+    
+    
+    
     
     func scrollCollectionViewToIndex(itemIndex: Int) {
         let indexPath = IndexPath(item: itemIndex, section: 0)

@@ -12,7 +12,7 @@ import Photos
 
 class UploadFileViewController: UIViewController {
 
-      var imgPickerViewController: UIImagePickerController!
+    var imgPickerViewController: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +33,12 @@ class UploadFileViewController: UIViewController {
 
 extension UploadFileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, FilterVideoViewControllerDelegate {
  
-    
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
            picker.dismiss(animated: true, completion: nil)
        }
     
-    
-    
+   
     internal func imagePickerController(_ picker: UIImagePickerController,
     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
@@ -58,23 +56,5 @@ extension UploadFileViewController: UIImagePickerControllerDelegate, UINavigatio
     }
     
     
-    func filterVideoViewControllerVideoDidFilter(video: AVURLAsset) {
-    }
-    
-    func filterImageViewControllerImageDidFilter(image: UIImage) {
-        
-    }
-    
-    func filterImageViewControllerDidCancel() {
-        
-    }
-    
-    func filterVideoViewControllerDidCancel() {
-        
-    }
-    func saveAVURLAsset(video: AVURLAsset) {
-        
-     }
-     
-    
+    func filterVideoViewControllerDidCancel() {}
 }

@@ -20,10 +20,8 @@ class VideoDetailsViewController: UIViewController {
     
     
     var ImageHolder: UIImage!
-    var Titleholder: String!
     var video:AVURLAsset!
-    var metaItem:AVMetadataItem!
-    var videoURl:URL!
+    var videoHolderUrl:URL!
     
     
     override func viewDidLoad() {
@@ -38,19 +36,24 @@ class VideoDetailsViewController: UIViewController {
         downloadUrlBtn.isHidden = true
     }
     
-    func showUiComponents(){
-           activityLoader.isHidden = false
-           activityLoader.startAnimating()
+    func showActivityLoader(){
+        activityLoader.isHidden = false
+        activityLoader.startAnimating()
+    }
+    
+    func showUiButton (){
+        activityLoader.stopAnimating()
+        activityLoader.isHidden = true
+        downloadUrlBtn.isHidden = false
     }
     
     
-    
-    func getVideoDetails(videoDetails: URL){
-        videoURl = videoDetails
-        let  videoDetail = AVURLAsset(url: videoDetails as URL)
-        video = videoDetail
-        ImageHolder = videoDetail.videoToUIImage()
-        }
+    func getVideoDetails(videoDataUrl: URL){
+        videoHolderUrl = videoDataUrl
+        let videoData = AVURLAsset(url: videoDataUrl as URL)
+        video = videoData
+        ImageHolder = video.videoToUIImage()
+    }
     
     
     
@@ -63,47 +66,49 @@ class VideoDetailsViewController: UIViewController {
         playerViewController.player = player
         present(playerViewController, animated: true) {
                playerViewController.player!.play()
-             }
+        }
     }
+    
+    
+    
     
   
     @IBAction func uploadFirebaseBtn(_ sender: Any) {
         
-            showUiComponents()
-            let videoName = "VIDEO , ID : \(NSUUID().uuidString) "
-            let storageReference = Storage.storage().reference().child(videoName)
-            let localFile =  videoURl!
+        showActivityLoader()
+        // create a unique id to name the video file on firebase
+        let videoName = "VIDEO , ID : \(NSUUID().uuidString) "
         
-            let metadata = StorageMetadata()
+        // create reference to firebase storage
+        let storageReference = Storage.storage().reference().child(videoName)
+       
+        //get metadata of video file
+        let metadata = StorageMetadata()
         
-        storageReference.putFile(from: localFile as URL, metadata: metadata, completion: { (metadata, error) in
+        //perform upload operation of video file and its metadata to firebase storage
+        storageReference.putFile(from: videoHolderUrl as URL, metadata: metadata, completion: { (metadata, error) in
                  if error == nil {
-                     print("Successful video upload")
-                    storageReference.downloadURL(completion: { (url, error) in
-                        
-                        self.downloadUrlBtn.setTitle(url?.absoluteString,for: .normal)
-                        self.activityLoader.stopAnimating()
-                        self.activityLoader.isHidden = true
-                        self.downloadUrlBtn.isHidden = false
-                    })
-                     } else {
-                     print(error?.localizedDescription)
-                 }
-             })
-        
-
+                    
+        // get link to video on firebase storage
+        storageReference.downloadURL(completion: { (url, error) in
             
+        // set link to title of button
+        self.downloadUrlBtn.setTitle(url?.absoluteString,for: .normal)
+        self.showUiButton()
+                  })
+        } else {
+        print(error?.localizedDescription)
+        }
+     })
     }
     
     
-    
+    // func to open link in safari
     @IBAction func downloadUrlBtnClicked(_ sender: Any) {
-       
         if let text = downloadUrlBtn.titleLabel?.text {
                guard let url = URL(string: text) else { return }
                 UIApplication.shared.open(url)
         }
-    
     }
     
 }

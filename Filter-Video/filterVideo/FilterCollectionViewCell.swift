@@ -8,6 +8,8 @@
 
 import UIKit
 
+//collection view cells that show the variety of filters
+
 class FilterCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var filterNameLabel: UILabel!

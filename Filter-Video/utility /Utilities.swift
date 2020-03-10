@@ -8,9 +8,11 @@
 
 import Foundation
 import AVKit
-import CoreData
+
 
 extension AVAsset {
+    
+    
     static func squareCropVideo(inputURL: NSURL, completion: @escaping (_ outputURL : NSURL?) -> ())
     {
         let videoAsset: AVAsset = AVAsset( url: inputURL as URL )
@@ -38,7 +40,6 @@ extension AVAsset {
         exportSession.outputFileType = AVFileType.mov
         exportSession.videoComposition = videoComposition
         exportSession.exportAsynchronously(completionHandler: {
-            print("completion")
             if exportSession.status == .completed {
                 DispatchQueue.main.async(execute: {
                     completion(croppedOutputFileUrl as NSURL)
@@ -54,9 +55,10 @@ extension AVAsset {
     }
 
     
+    
+    
     static func configureTransformation(clipVideoTrack:AVAssetTrack) -> CGAffineTransform {
-        
-        if(clipVideoTrack.naturalSize.width == clipVideoTrack.naturalSize.height){
+          if(clipVideoTrack.naturalSize.width == clipVideoTrack.naturalSize.height){
             return clipVideoTrack.preferredTransform
         }
         
@@ -92,6 +94,8 @@ extension AVAsset {
 
     
     
+    
+    
     static func getVideoOrientation(transform:CGAffineTransform, track: AVAssetTrack) -> UIInterfaceOrientation {
         switch (transform.tx, transform.ty) {
         case (0, 0):
@@ -105,6 +109,8 @@ extension AVAsset {
         }
     }
     
+    
+    //function to get snapshot image from video
     func videoToUIImage()->UIImage {
            var image = UIImage()
            do {
@@ -118,6 +124,8 @@ extension AVAsset {
            return image
        }
        
+    
+    
     private func videoToUIImageOrientation() -> UIImage.Orientation{
            let clipVideoTrack:AVAssetTrack = self.tracks( withMediaType: AVMediaType.video ).first!
            let videoTransform:CGAffineTransform = clipVideoTrack.preferredTransform
@@ -137,6 +145,8 @@ extension AVAsset {
            
        }
        
+    
+    
        func exportFilterVideo(videoComposition:AVVideoComposition , completion: @escaping (_ outputURL : NSURL?) -> ()) {
            let exportSession = AVAssetExportSession(asset: self, presetName: AVAssetExportPresetHighestQuality)!
            let croppedOutputFileUrl = URL( fileURLWithPath: NSTemporaryDirectory() + NSUUID().uuidString + ".mov")

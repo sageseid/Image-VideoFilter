@@ -13,7 +13,6 @@ import CoreData
 
 var videoArray = [NSManagedObject]()
 
-
 class VideoLogsViewController: UIViewController {
     
     
@@ -81,7 +80,7 @@ extension VideoLogsViewController:  UITableViewDataSource, UITableViewDelegate  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            if  let TestVc = segue.destination as? VideoDetailsViewController {
             assert(sender as? URL != nil)
-                 TestVc.getVideoDetails(videoDetails: sender as! URL)
+                 TestVc.getVideoDetails(videoDataUrl: sender as! URL)
              }
     }
     

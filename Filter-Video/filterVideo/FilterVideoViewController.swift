@@ -11,8 +11,6 @@ import AVKit
 import CoreData
 
 public protocol FilterVideoViewControllerDelegate {
-    func saveAVURLAsset(video: AVURLAsset)
-    func filterVideoViewControllerVideoDidFilter(video: AVURLAsset)
     func filterVideoViewControllerDidCancel()
 }
 
@@ -123,17 +121,16 @@ public var delegate: FilterVideoViewControllerDelegate?
     @IBAction func doneButtontapped() {
         if avVideoComposition != nil {
         video?.exportFilterVideo(videoComposition: avVideoComposition , completion: { (url) in
-           //let convertedVideo = AVURLAsset(url: url! as URL)
            self.save(name: url! as URL)
         })
         }
-            
         dismiss(animated: true, completion: nil)
     }
     
     
+    
+    //function to save video url inside core data database
     func save(name: URL) {
-      
       guard let appDelegate =
         UIApplication.shared.delegate as? AppDelegate else {
         return
@@ -143,15 +140,17 @@ public var delegate: FilterVideoViewControllerDelegate?
       let entity =
         NSEntityDescription.entity(forEntityName: "Video",
                                    in: managedContext)!
-      
       let videoUrl = NSManagedObject(entity: entity,
                                    insertInto: managedContext)
       videoUrl.setValue(name, forKeyPath: "videoAsset")
       do {
         try managedContext.save()
-        videoArray.append(videoUrl)
+       // videoArray.append(videoUrl)
       } catch let error as NSError {
         print("Could not save. \(error), \(error.userInfo)")
       }
     }
+    
+    
+    
 }
