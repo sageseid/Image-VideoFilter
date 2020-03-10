@@ -2,8 +2,8 @@
 //  FilterVideoViewController.swift
 //  InstagramFilter
 //
-//  Created by James Fong on 2018-01-05.
-//  Copyright © 2018 James Fong. All rights reserved.
+//  Created by Noel Obaseki on 03/03/2020.
+//  Copyright © 2020 NoelObaseki. All rights reserved.
 //
 
 import UIKit
