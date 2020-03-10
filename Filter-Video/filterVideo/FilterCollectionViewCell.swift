@@ -1,6 +1,6 @@
 //
 //  FilterCollectionViewCell.swift
-//  InstagramFilter
+//  Filter-Video
 //
 //  Created by Noel Obaseki on 03/03/2020.
 //  Copyright © 2020 NoelObaseki. All rights reserved.
