@@ -8,12 +8,12 @@ store the metadata for it on firebase. Use OpenGL/Native Camera API on Android o
 
 
 ## Features
-* Combine for async operations
 * URLSessions for network requests
 * Codable for JSON parsing
-* Local persistence using CoreData database
-* MVVM architecture
-* SwiftUI
+* database using Firebase
+* AVFoundation for multimedia handling 
+* MVP architecture
+* UIKit
 
 #  Author
 Noel Obaseki
